@@ -63,18 +63,18 @@ namespace pet_hotel.Controllers
         //     return new List<Pet>{ newPet1, newPet2};
         // }
 
-        // [HttpPut("{id}")]
-        // public Pet Put(int id, Pet pet)
-        // {
-        //     // Our DB context needs to know the id of the pet to update
-        //     pet.id = id;
-        //     // Tell the DB context about our updated pet object
-        //     _context.Update(pet);
-        //     // ...and save the pet object to the database
-        //     _context.SaveChanges();
-        //     // Respond back with the created pet object
-        //     return pet;
-        // }
+        [HttpPut("{id}")]
+        public Pet Put(int id, Pet pet)
+        {
+            // Our DB context needs to know the id of the pet to update
+            pet.id = id;
+            // Tell the DB context about our updated pet object
+            _context.Update(pet);
+            // ...and save the pet object to the database
+            _context.SaveChanges();
+            // Respond back with the created pet object
+            return pet;
+        }
     }
 }
 
