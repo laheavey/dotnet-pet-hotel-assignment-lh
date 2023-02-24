@@ -16,23 +16,13 @@ namespace pet_hotel.Controllers
             _context = context;
         }
 
-        // This is just a stub for GET / to prevent any weird frontend errors that 
-        // occur when the route is missing in this controller
+        // GET /api/petowners/
         [HttpGet]
         public IEnumerable<PetOwner> GetPets() {
-            
             return _context.PetOwners;
-
         }
 
-        [HttpPost]
-        public PetOwner Post(PetOwner petowner)
-        {
-            _context.Add(petowner);
-            _context.SaveChanges();
-            return petowner;
-        }
-
+        // GET /api/petowners/:id
         [HttpGet("{id}")]
         public ActionResult<PetOwner> GetById(int id) {
             PetOwner petowner =  _context.PetOwners
@@ -43,6 +33,16 @@ namespace pet_hotel.Controllers
         return petowner;
         }
 
+        // POST /api/petowners/
+        [HttpPost]
+        public PetOwner Post(PetOwner petowner)
+        {
+            _context.Add(petowner);
+            _context.SaveChanges();
+            return petowner;
+        }
+
+        // PUT /api/petowners/:id
         [HttpPut("{id}")]
         public PetOwner Put(int id, PetOwner petowner)
         {
@@ -53,16 +53,12 @@ namespace pet_hotel.Controllers
             return petowner;
         }
 
+        // DELETE /api/petowners/:id
         [HttpDelete("{id}")]
         public void Delete(int id) 
         {
-            // Find the bread, by ID
             PetOwner petowner = _context.PetOwners.Find(id);
-
-            // Tell the DB that we want to remove this bread
             _context.PetOwners.Remove(petowner);
-
-            // ...and save the changes to the database
             _context.SaveChanges();
         }
     }

@@ -19,14 +19,14 @@ namespace pet_hotel.Controllers
             _context = context;
         }
 
-        // This is just a stub for GET / to prevent any weird frontend errors that 
-        // occur when the route is missing in this controller
+        // GET /api/pets/
         [HttpGet]
         public IEnumerable<Pet> GetPets() {
             return _context.Pets
             .Include(pet => pet.petOwner);
         }
 
+        // GET /api/pets/:id
         [HttpGet("{id}")]
         public ActionResult<Pet> GetById(int id) {
             Pet pet =  _context.Pets
@@ -39,6 +39,7 @@ namespace pet_hotel.Controllers
                 return pet;
         }
         
+        // POST /api/pets/
         [HttpPost]
         public IActionResult CreatePet(Pet pet)
         {
@@ -47,6 +48,7 @@ namespace pet_hotel.Controllers
             return CreatedAtAction(nameof(GetById), new { id = pet.id }, pet);
         }
 
+        // PUT /api/pets/:id
         [HttpPut("{id}")]
         public Pet Put(int id, Pet pet)
         {
@@ -60,6 +62,7 @@ namespace pet_hotel.Controllers
             return pet;
         }
 
+        // DELETE /api/pets/:id
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
