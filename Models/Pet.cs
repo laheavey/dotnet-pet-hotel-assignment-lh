@@ -6,17 +6,31 @@ using System;
 namespace pet_hotel.Models
 {
     public enum PetBreedType {
-            Chiwawa, //0
-            Poodle, //1
-            Wiener, 
-            GoldenRetriever
+        //     Chiwawa, //0
+        //     Poodle, //1
+        //     Wiener, 
+        //     GoldenRetriever
+        Shepherd,
+        Poodle,
+        Beagle,
+        Bulldog,
+        Terrier,
+        Boxer,
+        Labrador,
+        Retriever
+
     }
     
     public enum PetColorType {
-            brown,
-            white,
-            black,
-            golden
+        // brown,
+        White,
+        Black,
+        Golden,
+        Tricolor,
+        Spotted
+
+           
+            
     }
 
 
